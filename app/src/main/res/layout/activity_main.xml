@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rootRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvNews"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="50dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="mdlksamdlkasmd"
+            android:onClick="funGetNews"/>
+
+        <TextView
+            android:id="@+id/tvScores"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/tvNews"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="mdlksamdlkasmd" />
+    </RelativeLayout>
+</layout>
