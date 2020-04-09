@@ -12,13 +12,12 @@ object NewsBindingAdapter {
     fun setList(recyclerView: RecyclerView, newsResponse: NewsResponse?) {
         newsResponse?.let {
             val adapter = NewsAdapter()
-            adapter.list = it.rss?.channel?.item as MutableList<Item>
+            adapter.list = it.rss?.channel?.item as ArrayList<Item>
             recyclerView.adapter = adapter
             recyclerView.isScrollContainer = false
             recyclerView.isNestedScrollingEnabled = false
             recyclerView.layoutManager =
                 LinearLayoutManager(recyclerView.context, LinearLayoutManager.VERTICAL, false)
-
         }
     }
 }

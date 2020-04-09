@@ -22,8 +22,8 @@ data class Channel(
     @SerializedName("language") val language: String?,
     @SerializedName("pubDate") val pubDate: String?,
     @SerializedName("link") val link: String?,
-    @SerializedName("category") val category: List<String>?,
-    @SerializedName("item") val item: List<Item>? = null
+    @SerializedName("category") val category: List<String>? = ArrayList(),
+    @SerializedName("item") val item: List<Item>? = ArrayList()
 ) : Parcelable
 
 @Parcelize
@@ -34,7 +34,7 @@ data class Item(
     @SerializedName("enclosure") val enclosure: Enclosure?,
     @SerializedName("description") val description: String?,
     @SerializedName("link") val link: String?,
-    @SerializedName("category") val category: String?
+    @SerializedName("category") val category: List<String>? = ArrayList()
 ) : Parcelable
 
 @Parcelize

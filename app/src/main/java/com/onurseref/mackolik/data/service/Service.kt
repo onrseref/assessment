@@ -8,11 +8,11 @@ import io.reactivex.Observable
 
 interface Service {
 
-    @GET("latestnews.xml")
+    @GET("latestnews")
     fun getNews(): Observable<NewsResponse>
 
 
-    @GET("scores.xml")
+    @GET("scores")
     fun getScores(): Observable<ScoresResponse>
 
 }

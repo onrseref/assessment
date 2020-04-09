@@ -1,23 +1,23 @@
 package com.onurseref.mackolik.ui.news
 
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import com.onurseref.mackolik.R
 import com.onurseref.mackolik.base.ui.BaseActivity
 import com.onurseref.mackolik.databinding.ActivityNewsBinding
 import com.onurseref.mackolik.ui.news.viewmodel.NewsViewModel
+import javax.inject.Inject
 
 class NewsActivity : BaseActivity() {
 
-    private lateinit var newsViewModel: NewsViewModel
+    @Inject
+    lateinit var newsViewModel: NewsViewModel
+    lateinit var newsActivityBinding: ActivityNewsBinding
 
     override fun bindScreen() {
-        newsViewModel =
-            ViewModelProviders.of(this, viewModelProviderFactory).get(NewsViewModel::class.java)
-        DataBindingUtil.setContentView<ActivityNewsBinding>(this, R.layout.activity_news).apply {
-            this.lifecycleOwner = this@NewsActivity
-            this.newsViewModel = newsViewModel
-        }
+        newsActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_news)
+        newsActivityBinding.newsViewModel = newsViewModel
+
+        newsActivityBinding.lifecycleOwner = this
         newsViewModel.getNews()
     }
 }
