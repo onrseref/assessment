@@ -1,6 +1,8 @@
 package com.onurseref.mackolik.base.di.module
 
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.onurseref.mackolik.data.service.Service
 import dagger.Module
 import dagger.Provides
@@ -17,12 +19,12 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideMockService(okHttpClient: OkHttpClient): Retrofit {
+    fun provideMockService(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl("http://www.mobilefeeds.performgroup.com/utilities/interviews/techtest/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
@@ -49,4 +51,11 @@ class NetworkModule {
             .build()
     }
 
+    @Singleton
+    @Provides
+    fun provideGson(): Gson {
+        return GsonBuilder()
+            .setLenient()
+            .create()
+    }
 }
