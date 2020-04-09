@@ -23,7 +23,7 @@ data class Channel(
     @SerializedName("pubDate") val pubDate: String?,
     @SerializedName("link") val link: String?,
     @SerializedName("category") val category: List<String>?,
-    @SerializedName("item") val item: List<Item>?
+    @SerializedName("item") val item: List<Item>? = null
 ) : Parcelable
 
 @Parcelize

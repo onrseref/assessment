@@ -8,7 +8,7 @@ import io.reactivex.Observable
 
 interface Service {
 
-    @GET("news.xml")
+    @GET("latestnews.xml")
     fun getNews(): Observable<NewsResponse>
 
 

@@ -2,7 +2,6 @@ package com.onurseref.mackolik.ui.news.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.onurseref.mackolik.base.ui.BaseViewModel
-import com.onurseref.mackolik.common.models.Item
 import com.onurseref.mackolik.common.models.NewsResponse
 import com.onurseref.mackolik.ui.news.domain.NewsUseCase
 import com.onurseref.mackolik.ui.news.viewstate.NewsViewState
@@ -13,7 +12,7 @@ import javax.inject.Inject
 class NewsViewModel @Inject constructor(private val newsUseCase: NewsUseCase) :
     BaseViewModel() {
 
-    val newsResponse = MutableLiveData<NewsResponse>()
+    val newsResponse = MutableLiveData<NewsResponse?>()
     val isLoadingLiveData = MutableLiveData<Boolean>()
     val errorMessageLiveData = MutableLiveData<String>()
 
