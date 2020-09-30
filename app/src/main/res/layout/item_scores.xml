@@ -3,13 +3,10 @@
 
     <data>
 
-        <import
-            alias="ExtensionFunctions"
-            type="com.onurseref.mackolik.common.extensions.ExtensionKt" />
 
         <variable
             name="group"
-            type="com.onurseref.mackolik.common.models.Group" />
+            type="com.onurseref.marvel.common.models.Group" />
     </data>
 
     <RelativeLayout

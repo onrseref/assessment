@@ -6,7 +6,7 @@
 
         <variable
             name="match"
-            type="com.onurseref.mackolik.common.models.Match" />
+            type="com.onurseref.marvel.common.models.Match" />
     </data>
 
     <RelativeLayout

@@ -9,7 +9,7 @@
 
         <variable
             name="scoresViewModel"
-            type="com.onurseref.mackolik.ui.scores.viewmodel.ScoresViewModel" />
+            type="com.onurseref.marvel.ui.scores.viewmodel.ScoresViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -9,7 +9,7 @@
 
         <variable
             name="newsViewModel"
-            type="com.onurseref.mackolik.ui.news.viewmodel.NewsViewModel" />
+            type="com.onurseref.marvel.ui.news.viewmodel.NewsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
