@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(private val remoteDataSource: RemoteDataSource) {
 
-    fun getCharacters(): Observable<CharacterResponse> = remoteDataSource
-        .getCharacters()
+    fun getCharacters(offset: Int?): Observable<CharacterResponse> = remoteDataSource
+        .getCharacters(offset)
         .subscribeOn(Schedulers.io())
 }

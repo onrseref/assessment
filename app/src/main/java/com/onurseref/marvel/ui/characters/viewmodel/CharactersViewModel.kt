@@ -12,12 +12,14 @@ import javax.inject.Inject
 class CharactersViewModel @Inject constructor(private val charactersUseCase: CharactersUseCase) :
     BaseViewModel() {
 
-    val characterList = MutableLiveData<List<Character>?>()
+    val characterListLiveData = MutableLiveData<ArrayList<Character>?>()
     val isLoadingLiveData = MutableLiveData<Boolean>()
     val errorMessageLiveData = MutableLiveData<String>()
+    var isLastPage = false
+    var characterList = ArrayList<Character>()
 
     fun getCharacters() {
-        charactersUseCase.getCharacters()
+        charactersUseCase.getCharacters(characterList.size)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 when (it) {
@@ -26,7 +28,14 @@ class CharactersViewModel @Inject constructor(private val charactersUseCase: Cha
                     }
                     is CharactersViewState.Success -> {
                         isLoadingLiveData.postValue(false)
-                        characterList.postValue(it.characterResponse?.data?.results)
+
+                        val items = ArrayList<Character>()
+                        if (it.characterResponse?.data?.results?.isNullOrEmpty() == false) {
+                            items.addAll(it.characterResponse.data.results)
+                            characterListLiveData.value = items
+                            characterList.addAll(items)
+                            isLastPage = characterList.size == it.characterResponse.data.total
+                        }
                     }
                     else -> {
                         isLoadingLiveData.postValue(false)

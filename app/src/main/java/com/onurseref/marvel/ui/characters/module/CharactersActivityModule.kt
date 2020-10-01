@@ -1,6 +1,6 @@
 package com.onurseref.marvel.ui.characters.module
 
-import com.onurseref.marvel.base.di.ViewModelKey
+import com.onurseref.marvel.di.ViewModelKey
 import com.onurseref.marvel.ui.characters.viewmodel.CharactersViewModel
 import dagger.Module
 

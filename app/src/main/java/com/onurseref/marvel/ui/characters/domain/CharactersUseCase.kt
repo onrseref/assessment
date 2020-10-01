@@ -10,8 +10,8 @@ import javax.inject.Inject
 
 class CharactersUseCase @Inject constructor(private val repository: Repository) {
 
-    fun getCharacters(): Observable<CharactersViewState> =
-        repository.getCharacters()
+    fun getCharacters(offset: Int?): Observable<CharactersViewState> =
+        repository.getCharacters(offset)
             .subscribeOn(Schedulers.io())
             .map { getSuccessViewState(it) }
             .onErrorReturn { getFailViewState(it) }

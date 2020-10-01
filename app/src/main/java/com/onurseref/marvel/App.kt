@@ -1,6 +1,6 @@
 package com.onurseref.marvel
 
-import com.onurseref.marvel.base.di.DaggerAppComponent
+import com.onurseref.marvel.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

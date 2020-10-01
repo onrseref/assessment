@@ -1,4 +1,4 @@
-package com.onurseref.marvel.base.di.module
+package com.onurseref.marvel.di.module
 
 import android.content.Context
 import com.onurseref.marvel.App

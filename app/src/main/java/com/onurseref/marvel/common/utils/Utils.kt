@@ -1,5 +1,7 @@
 package com.onurseref.marvel.common.utils
 
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -32,5 +34,25 @@ object Utils {
         }
 
         return ""
+    }
+
+    abstract class PaginationListener(private val layoutManager: LinearLayoutManager) :
+        RecyclerView.OnScrollListener() {
+
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            val totalItemCount = layoutManager.itemCount
+            val findLastVisibleItemPosition =
+                layoutManager.findLastCompletelyVisibleItemPosition() + 1
+            if (findLastVisibleItemPosition >= totalItemCount) {
+                loadMoreItems()
+            }
+        }
+
+        protected abstract fun loadMoreItems()
+
+        companion object {
+            const val PAGE_START = 0
+        }
     }
 }

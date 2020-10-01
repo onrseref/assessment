@@ -1,4 +1,4 @@
-package com.onurseref.marvel.base.di
+package com.onurseref.marvel.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

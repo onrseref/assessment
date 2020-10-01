@@ -5,14 +5,6 @@
     <data>
 
         <variable
-            name="characterListRequestListener"
-            type="com.onurseref.marvel.ui.characters.adapter.CharactersAdapter.CharacterListRequestListener" />
-
-        <variable
-            name="characterSelectListener"
-            type="com.onurseref.marvel.ui.characters.adapter.CharactersAdapter.OnCharacterSelectListener" />
-
-        <variable
             name="charactersViewModel"
             type="com.onurseref.marvel.ui.characters.viewmodel.CharactersViewModel" />
     </data>
@@ -23,11 +15,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvList"
-            setCharacterList="@{charactersViewModel.characterListLiveData}"
-            setCharacterListRequestListener="@{characterListRequestListener}"
-            setCharacterSelectListener="@{characterSelectListener}"
-            setIsLastPage="@{charactersViewModel.isLastPage}"
-            visibleIf="@{charactersViewModel.characterListLiveData.size() > 0}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"

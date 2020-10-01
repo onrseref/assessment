@@ -1,9 +1,9 @@
-package com.onurseref.marvel.base.di
+package com.onurseref.marvel.di
 
 import android.app.Application
 import com.onurseref.marvel.App
-import com.onurseref.marvel.base.di.module.ActivityBuilderModule
-import com.onurseref.marvel.base.di.module.ApplicationModule
+import com.onurseref.marvel.di.module.ActivityBuilderModule
+import com.onurseref.marvel.di.module.ApplicationModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
