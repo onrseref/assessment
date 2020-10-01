@@ -6,41 +6,43 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.onurseref.marvel.R
-import com.onurseref.marvel.databinding.ItemCharactersBinding
-import com.onurseref.marvel.ui.characters.model.Character
+import com.onurseref.marvel.databinding.ItemComicBinding
+import com.onurseref.marvel.ui.characters.model.Items
 
 
-class ComicsAdapter(private var characterList: List<Character>) :
+class ComicsAdapter(private var itemList: List<Items>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private lateinit var itemCharactersBinding: ItemCharactersBinding
+    private lateinit var itemComicBinding: ItemComicBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        itemCharactersBinding = DataBindingUtil.inflate(
+        itemComicBinding = DataBindingUtil.inflate(
             layoutInflater,
-            R.layout.item_characters,
+            R.layout.item_comic,
             parent,
             false
         )
-        return NewsViewHolder(itemCharactersBinding)
+        return ComicViewHolder(itemComicBinding)
     }
 
-    override fun getItemCount(): Int = characterList.size
+    override fun getItemCount(): Int = if (itemList.size > 10) 10 else itemList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as NewsViewHolder).bindData(characterList[position])
+        (holder as ComicViewHolder).bindData(itemList[position])
     }
 
-    class NewsViewHolder(private val binding: ItemCharactersBinding) :
+    class ComicViewHolder(private val binding: ItemComicBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindData(character: Character) {
-            binding.character = character
+        fun bindData(item: Items) {
+            binding.item = item
         }
     }
 
     companion object {
-        fun setCharacterList(recyclerView: RecyclerView, list: List<Character>?) {
+        @JvmStatic
+        @BindingAdapter("setComicsList")
+        fun setComicsList(recyclerView: RecyclerView, list: List<Items>?) {
             if (list != null) {
                 val adapter = ComicsAdapter(list)
                 recyclerView.adapter = adapter

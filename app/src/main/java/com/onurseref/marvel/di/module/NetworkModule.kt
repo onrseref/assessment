@@ -20,7 +20,7 @@ class NetworkModule {
     fun provideMockService(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://gateway.marvel.com:443/v1/public/")
+            .baseUrl("https://gateway.marvel.com/v1/public/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
