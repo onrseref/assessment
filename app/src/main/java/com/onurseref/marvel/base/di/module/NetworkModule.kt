@@ -1,7 +1,7 @@
 package com.onurseref.marvel.base.di.module
 
 
-import com.onurseref.marvel.data.service.Service
+import com.onurseref.marvel.data.Service
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -20,7 +20,7 @@ class NetworkModule {
     fun provideMockService(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("http://demo6709004.mockable.io/")
+            .baseUrl("https://gateway.marvel.com:443/v1/public/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -28,7 +28,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideTobiServiceInterface(retrofit: Retrofit): Service {
+    fun provideServiceInterface(retrofit: Retrofit): Service {
         return retrofit.create(Service::class.java)
     }
 

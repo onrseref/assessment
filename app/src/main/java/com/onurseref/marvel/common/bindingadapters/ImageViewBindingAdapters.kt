@@ -10,15 +10,19 @@ import kotlin.toString
 object ImageViewBindingAdapters {
 
     @JvmStatic
-    @BindingAdapter("bind:setImage")
-    fun setImage(view: ImageView, url: String?) {
+    @BindingAdapter("setImage", "setExtension")
+    fun setImage(view: ImageView, url: String?, extension: String?) {
         url?.let {
-            view.loadImage(view.context, url, view.resDrawable(R.drawable.ic_noimage))
+            view.loadImage(
+                view.context,
+                "$url.$extension",
+                view.resDrawable(R.drawable.ic_noimage)
+            )
         }
     }
 
     @JvmStatic
-    @BindingAdapter("bind:setImageCenterInside")
+    @BindingAdapter("setImageCenterInside")
     fun setImageCenterInside(view: ImageView, url: String?) {
         url?.let {
             view.loadImageCenterInside(url, null)
@@ -27,7 +31,7 @@ object ImageViewBindingAdapters {
 
 
     @JvmStatic
-    @BindingAdapter("bind:setImageCenterCrop")
+    @BindingAdapter("setImageCenterCrop")
     fun setImageCenterCrop(view: ImageView, url: String?) {
         url?.let {
             if (url.isNull())
@@ -38,7 +42,7 @@ object ImageViewBindingAdapters {
     }
 
     @JvmStatic
-    @BindingAdapter("bind:setImageFitCenter")
+    @BindingAdapter("setImageFitCenter")
     fun setImageFitCenter(view: ImageView, url: String?) {
         if (url.isNullOrEmpty())
             view.loadImageFitCenter(url.toString(), view.resDrawable(R.drawable.ic_noimage))

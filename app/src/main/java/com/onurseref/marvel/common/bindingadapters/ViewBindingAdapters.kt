@@ -8,17 +8,16 @@ import com.onurseref.marvel.common.extension.setOnDebouncedClickListener
 object ViewBindingAdapters {
 
     @JvmStatic
-    @BindingAdapter("bind:visibleIf")
+    @BindingAdapter("visibleIf")
     fun changeVisibility(view: View, visible: Boolean) {
         view.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
     @JvmStatic
-    @BindingAdapter("bind:invisibleIf")
+    @BindingAdapter("invisibleIf")
     fun changeInVisibility(view: View, visible: Boolean) {
         view.visibility = if (visible) View.VISIBLE else View.INVISIBLE
     }
-
 
     @JvmStatic
     @BindingAdapter("onSafeClick")
@@ -27,5 +26,4 @@ object ViewBindingAdapters {
             listener.onClick(view)
         }
     }
-
 }

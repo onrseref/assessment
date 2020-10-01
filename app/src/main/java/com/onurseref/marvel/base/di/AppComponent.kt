@@ -4,7 +4,6 @@ import android.app.Application
 import com.onurseref.marvel.App
 import com.onurseref.marvel.base.di.module.ActivityBuilderModule
 import com.onurseref.marvel.base.di.module.ApplicationModule
-import com.onurseref.marvel.base.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -17,8 +16,7 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         ActivityBuilderModule::class,
-        ApplicationModule::class,
-        ViewModelModule::class
+        ApplicationModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {
