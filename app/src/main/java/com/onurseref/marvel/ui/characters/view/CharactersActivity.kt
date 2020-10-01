@@ -3,7 +3,7 @@ package com.onurseref.marvel.ui.characters.view
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import com.onurseref.marvel.R
-import com.onurseref.marvel.base.ui.BaseActivity
+import com.onurseref.marvel.base.BaseActivity
 import com.onurseref.marvel.databinding.ActivityCharactersBinding
 import com.onurseref.marvel.ui.character.view.CharacterActivity
 import com.onurseref.marvel.ui.characters.adapter.CharactersAdapter

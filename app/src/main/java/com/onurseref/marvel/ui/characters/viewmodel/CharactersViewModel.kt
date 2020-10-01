@@ -1,7 +1,7 @@
 package com.onurseref.marvel.ui.characters.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.onurseref.marvel.base.ui.BaseViewModel
+import com.onurseref.marvel.base.BaseViewModel
 import com.onurseref.marvel.ui.characters.domain.CharactersUseCase
 import com.onurseref.marvel.ui.characters.model.Character
 import com.onurseref.marvel.ui.characters.viewstate.CharactersViewState
@@ -14,7 +14,7 @@ class CharactersViewModel @Inject constructor(private val charactersUseCase: Cha
 
     val characterListLiveData = MutableLiveData<ArrayList<Character>?>()
     val isLoadingLiveData = MutableLiveData<Boolean>()
-    val errorMessageLiveData = MutableLiveData<String>()
+    private val errorMessageLiveData = MutableLiveData<String>()
     var isLastPage = false
     var characterList = ArrayList<Character>()
 
