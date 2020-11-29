@@ -1,9 +1,13 @@
 package com.onurseref.trendyol.ui.widgets.view
 
+import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import com.onurseref.trendyol.R
 import com.onurseref.trendyol.base.BaseActivity
+import com.onurseref.trendyol.common.utils.Companion.Companion.TYPE_BANNER
+import com.onurseref.trendyol.common.utils.Companion.Companion.TYPE_PRODUCT
 import com.onurseref.trendyol.databinding.ActivityWidgetsBinding
+import com.onurseref.trendyol.ui.detail.view.DetailActivity
 import com.onurseref.trendyol.ui.widgets.adapter.SliderAdapter
 import com.onurseref.trendyol.ui.widgets.model.BannerContent
 import com.onurseref.trendyol.ui.widgets.model.Product
@@ -29,10 +33,14 @@ class WidgetsActivity : BaseActivity(),
     }
 
     override fun onBannerSelected(bannerContent: BannerContent?) {
-        val x = 0
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(TYPE_BANNER, bannerContent)
+        startActivity(intent)
     }
 
     override fun onProductSelected(product: Product?) {
-        val x = 0
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(TYPE_PRODUCT, product)
+        startActivity(intent)
     }
 }

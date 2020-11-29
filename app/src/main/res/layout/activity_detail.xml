@@ -1,57 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="character"
-            type="com.onurseref.trendyol.ui.widgets.model.Widget" />
+            name="product"
+            type="com.onurseref.trendyol.ui.widgets.model.Product" />
+
+        <variable
+            name="bannerContent"
+            type="com.onurseref.trendyol.ui.widgets.model.BannerContent" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!--<ImageView
-            android:id="@+id/ivCharacter"
-            setExtension="@{character.thumbnail.extension}"
-            setImage="@{character.thumbnail.path}"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp" />-->
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@{character.title}"
-            android:textStyle="bold" />
-<!--
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@{character.title}"
-            android:textStyle="bold" />-->
-<!--
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvComicsList"
-            setComicsList="@{character.comics.items}"
+        <LinearLayout
+            android:id="@+id/llBannerContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+            bind:visibleIf="@{bannerContent!=null}">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/ivBannerContent"
+                setHeight="@{bannerContent.height}"
+                setImageAndSetSize="@{bannerContent.imageUrl}"
+                setWidth="@{bannerContent.width}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin20"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/tvBannerContentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                android:text="@{bannerContent.title}"
+                android:textSize="@dimen/fontSize20"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            bind:visibleIf="@{product!=null}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvComicsList"
+                setImageSliderList="@{product.imageUrls}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin16"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <TextView
+                android:id="@+id/tvProductTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                android:text="@{product.name}"
+                android:textSize="@dimen/fontSize20"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

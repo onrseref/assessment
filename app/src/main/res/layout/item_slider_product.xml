@@ -13,9 +13,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clRoot"
-        android:layout_width="150dp"
-        android:layout_height="250dp"
-        android:layout_margin="@dimen/margin8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/background_white_radius_5">
 
         <ImageView
@@ -38,7 +37,8 @@
             android:layout_margin="@dimen/margin8"
             android:ellipsize="end"
             android:gravity="center_horizontal"
-            android:maxLines="2"
+            android:maxLines="1"
+            android:singleLine="true"
             android:text="@{product.name}"
             android:textSize="@dimen/fontSize14"
             android:textStyle="bold"

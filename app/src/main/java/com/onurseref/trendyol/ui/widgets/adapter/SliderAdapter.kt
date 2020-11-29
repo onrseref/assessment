@@ -4,10 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.onurseref.trendyol.R
+import com.onurseref.trendyol.common.components.CustomSnapHelper
+import com.onurseref.trendyol.common.components.LinearLayoutPagerManager
 import com.onurseref.trendyol.common.extension.isNotNull
 import com.onurseref.trendyol.common.extension.setSafeOnClickListener
+import com.onurseref.trendyol.common.utils.Companion.Companion.DISPLAY_TYPE_SLIDER
 import com.onurseref.trendyol.common.utils.Companion.Companion.TYPE_BANNER
 import com.onurseref.trendyol.common.utils.Companion.Companion.TYPE_PRODUCT
 import com.onurseref.trendyol.databinding.ItemSliderBannerContentBinding
@@ -116,6 +120,15 @@ class SliderAdapter(
     class ProductViewHolder(private val binding: ItemSliderProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindData(product: Product?, onProductSelectListener: OnProductSelectListener) {
+            /*val params: LinearLayout.LayoutParams =
+                LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+            params.setMargins(8.dpToPx(), 8.dpToPx(), 8.dpToPx(), 8.dpToPx())
+            binding.clRoot.layoutParams = params
+
+*/
             binding.product = product
             binding.clRoot.setSafeOnClickListener {
                 onProductSelectListener.onProductSelected(product)
@@ -141,13 +154,31 @@ class SliderAdapter(
             onProductSelectListener: OnProductSelectListener
         ) {
             if (widget.isNotNull()) {
+                val snapHelper = CustomSnapHelper()
                 val adapter =
                     SliderAdapter(
                         widget,
                         onBannerSelectListener,
                         onProductSelectListener
                     )
+                if (widget.displayType == DISPLAY_TYPE_SLIDER) {
+                    recyclerView.layoutManager = LinearLayoutPagerManager(
+                        recyclerView.context,
+                        LinearLayoutManager.HORIZONTAL,
+                        false,
+                        widget.displayCount + 0.5f
+                    )
+                } else {
+                    recyclerView.layoutManager = LinearLayoutManager(
+                        recyclerView.context,
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    )
+                }
+
                 recyclerView.adapter = adapter
+                recyclerView.onFlingListener = null
+                snapHelper.attachToRecyclerView(recyclerView)
             }
         }
     }

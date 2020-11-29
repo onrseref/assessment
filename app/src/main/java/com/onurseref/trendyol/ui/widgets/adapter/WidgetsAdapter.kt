@@ -16,6 +16,7 @@ import com.onurseref.trendyol.databinding.ItemSliderBinding
 import com.onurseref.trendyol.ui.widgets.model.BannerContent
 import com.onurseref.trendyol.ui.widgets.model.Widget
 
+
 class WidgetsAdapter(
     private var widgetList: MutableList<Widget>,
     private var productsSelectListener: SliderAdapter.OnProductSelectListener,

@@ -5,22 +5,20 @@
     <data>
 
         <variable
-            name="bannerContent"
-            type="com.onurseref.trendyol.ui.widgets.model.BannerContent" />
+            name="imageUrl"
+            type="String" />
     </data>
 
     <RelativeLayout
         android:id="@+id/rlRoot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_margin="@dimen/margin16">
 
         <ImageView
             android:id="@+id/ivBanner"
-            setImageAndSetSize="@{bannerContent.imageUrl}"
-            setHeight="@{bannerContent.height}"
-            setWidth="@{bannerContent.width}"
-            android:layout_width="wrap_content"
+            setImage="@{imageUrl}"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"

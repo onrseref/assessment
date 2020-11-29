@@ -22,8 +22,8 @@ object ImageViewBindingAdapters {
     }
 
     @JvmStatic
-    @BindingAdapter("loadImageAndSetSize", "setWidth", "setHeight")
-    fun loadImageAndSetSize(view: ImageView, url: String?, width: Int, height: Int) {
+    @BindingAdapter("setImageAndSetSize", "setWidth", "setHeight")
+    fun setImageAndSetSize(view: ImageView, url: String?, width: Int, height: Int) {
         url?.let {
             view.loadImageAndSetSize(
                 view.context,
