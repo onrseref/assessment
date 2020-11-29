@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="mirage">#161823</color>
+    <color name="ebonyClay">#313549</color>
+    <color name="pictonBlue">#3399E6</color>
+    <color name="slateGray">#607486</color>
+    <color name="greyBlue">#607486</color>
+    <color name="whiteLilac">#F7F9FC</color>
+    <color name="mischka">#D2D7DD</color>
+    <color name="splash">#F7F9FC</color>
+    <color name="white">#ffffff</color>
+    <color name="iron">#D0D4D5</color>
+    <color name="black">#000000</color>
+    <color name="scarlet">#ff3300</color>
+    <color name="powderBlue">#aadbf9</color>
+    <color name="darkGrey">#151616</color>
+    <color name="cerulean">#007ac3</color>
+    <color name="dark">#161823</color>
+    <color name="paleGrey">#f7f9fc</color>
+    <color name="odd">#eee</color>
+    <color name="even">#fff</color>
+    <color name="devider">#ccc</color>
+    <color name="redOrange">#ff3300</color>
+    <color name="lightWhite">#80fafafa</color>
+    <color name="darkSkyBlue">#3399e6</color>
+    <color name="trans">#00000000</color>
+    <color name="lightGreyBlue">#b2bec2</color>
+    <color name="babyBlue">#40aadbf9</color>
 </resources>

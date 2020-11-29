@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="productsSelectListener"
+            type="com.onurseref.trendyol.ui.widgets.adapter.SliderAdapter.OnProductSelectListener" />
+
+        <variable
+            name="bannerSelectListener"
+            type="com.onurseref.trendyol.ui.widgets.adapter.SliderAdapter.OnBannerSelectListener" />
+
+        <variable
+            name="widget"
+            type="com.onurseref.trendyol.ui.widgets.model.Widget" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rootRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSlider"
+            setBannerContentsSelectListener="@{bannerSelectListener}"
+            setProductsSelectListener="@{productsSelectListener}"
+            setSlider="@{widget}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </RelativeLayout>
+</layout>
