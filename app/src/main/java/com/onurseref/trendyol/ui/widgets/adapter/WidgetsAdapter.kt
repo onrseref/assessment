@@ -47,7 +47,7 @@ class WidgetsAdapter(
                     parent,
                     false
                 )
-                WidgetsViewHolder(itemSliderBinding)
+                SliderViewHolder(itemSliderBinding)
             }
             else -> {
                 itemSliderBinding = DataBindingUtil.inflate(
@@ -56,7 +56,7 @@ class WidgetsAdapter(
                     parent,
                     false
                 )
-                WidgetsViewHolder(itemSliderBinding)
+                SliderViewHolder(itemSliderBinding)
             }
         }
     }
@@ -84,14 +84,24 @@ class WidgetsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is WidgetsViewHolder) {
-            holder.bindData(widgetList[position], productsSelectListener, bannerSelectListener)
-        } else if (holder is SingleBannerViewHolder) {
-            holder.bindData(widgetList[position].bannerContents?.get(0))
+        when (holder) {
+            is SliderViewHolder -> {
+                holder.bindData(widgetList[position], productsSelectListener, bannerSelectListener)
+            }
+            is SingleBannerViewHolder -> {
+                holder.bindData(widgetList[position].bannerContents?.get(0))
+            }
         }
     }
 
-    class WidgetsViewHolder(private val binding: ItemSliderBinding) :
+    inner class SingleBannerViewHolder(private val binding: ItemSingleBannerBinding) :
+        RecyclerView.ViewHolder(binding.rlRoot) {
+        fun bindData(bannerContent: BannerContent?) {
+            binding.bannerContent = bannerContent
+        }
+    }
+
+    class SliderViewHolder(private val binding: ItemSliderBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindData(
             widget: Widget,
@@ -104,12 +114,6 @@ class WidgetsAdapter(
         }
     }
 
-    inner class SingleBannerViewHolder(private val binding: ItemSingleBannerBinding) :
-        RecyclerView.ViewHolder(binding.rlRoot) {
-        fun bindData(bannerContent: BannerContent?) {
-            binding.bannerContent = bannerContent
-        }
-    }
 
     companion object {
 

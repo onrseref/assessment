@@ -69,6 +69,19 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <TextView
+                android:id="@+id/tvBrandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                android:text="@{product.brandName}"
+                tools:text="Trendyol"
+                android:textSize="@dimen/fontSize20"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/tvProductTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,8 +90,20 @@
                 android:layout_marginTop="@dimen/margin16"
                 android:layout_marginRight="@dimen/margin16"
                 android:text="@{product.name}"
-                android:textSize="@dimen/fontSize20"
+                android:textSize="@dimen/fontSize16"
+                tools:text="Gömlek"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvProductSalePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                android:text="@{product.salePrice.toString()}"
+                tools:text="69.99"
+                android:textSize="@dimen/fontSize14" />
         </LinearLayout>
     </RelativeLayout>
 </layout>
